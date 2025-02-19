@@ -135,28 +135,147 @@
 // }
 
 // 组件嵌套
-import Avatar from './Avatar';
+// import Avatar from './Avatar';
 
-function Card({ children }) {
+// function Card({ children }) {
+//   return (
+//     <div className="card">
+//       {children}
+//     </div>
+//   );
+// }
+
+// export default function Profile() {
+//   return (
+//     <Card>
+//       <Avatar
+//         size={100}
+//         person={{ 
+//           name: 'Katsuko Saruhashi',
+//           imageId: 'YfeOqp2'
+//         }}
+//       />
+//     </Card>
+//   );
+// }
+
+// import { getImageUrl } from './util.js';
+// import Section from './Section.js';
+
+// export default function Gallery() {
+//   const section = {
+//     p2: 'Maria Skłodowska-Curie',
+//     alt: "Maria Skłodowska-Curie",
+//     imageId: 'szV5sdG',
+//     profession: 'physicist and chemist',
+//     awardsList: ['Nobel Prize in Physics', 'Nobel Prize in Chemistry', 'Davy Medal', 'Matteucci Medal'],
+//     discovered: 'polonium (chemical element)',
+//     size: 40
+//   }
+//   const section2 = {
+//     p2: 'Katsuko Saruhashi',
+//     alt: "Katsuko Saruhashie",
+//     imageId: 'YfeOqp2',
+//     profession: 'geochemist',
+//     awardsList: ['Miyake Prize for geochemistry', 'Tanaka Prize'],
+//     discovered: 'a method for measuring carbon dioxide in seawater',
+//     size: 40
+//   }
+//   return (
+//     <div>
+//       <h1>Notable Scientists</h1>
+//       <Section
+//         {...section}
+//       />
+//       <Section
+//       {...section2}
+//       />
+//     </div>
+//   );
+// }
+
+// 根据props调整图像大小
+// import Avatar from './Avatar.js';
+// export default function app() {
+//   const ratio = window.devicePixelRatio;
+//   console.log(ratio);
+//   const avaImg = {
+//     imageId: '7vQD0fP',
+//     alt: 'Gregorio Y. Zara',
+//     size: 40
+//   }
+//   const avaImg2 = {
+//     imageId: '7vQD0fP',
+//     alt: 'Gregorio Y. Zara',
+//     size: 100
+//   }
+//   return(
+//     <>
+//     <Avatar {...avaImg} />
+//     <Avatar  {...avaImg2} />
+//   </>
+//   )
+// }
+
+// 在children prop中传递JSX代码
+// function Card({children, title}) {
+//   return(
+//     <div className="card">
+//   <div className="card-content">
+//     <h1>{title}</h1>
+//     {children}
+//     </div>
+//     </div>
+//   )
+// }
+// export default function Profile() {
+//   return (
+// <div>
+//   <Card title="Photo">
+//   <img
+//       className="avatar"
+//       src="https://i.imgur.com/OKS67lhm.jpg"
+//       alt="Aklilu Lemma"
+//       width={70}
+//       height={70}
+//     />
+//   </Card>
+//   <Card title="About">
+//   <p>Aklilu Lemma was a distinguished Ethiopian scientist who discovered a natural treatment to schistosomiasis.</p>
+//   </Card>
+// </div>
+// );
+// }
+
+function Item({ name, isPacked }) {
+  if (isPacked) {
+    return null;
+  }
+  return <li className="item">{name}</li>;
+}
+
+export default function PackingList() {
   return (
-    <div className="card">
-      {children}
-    </div>
+    <section>
+      <h1>Sally Ride 的行李清单</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="宇航服" 
+        />
+        <Item 
+          isPacked={true} 
+          name="带金箔的头盔" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Tam 的照片" 
+        />
+      </ul>
+    </section>
   );
 }
 
-export default function Profile() {
-  return (
-    <Card>
-      <Avatar
-        size={100}
-        person={{ 
-          name: 'Katsuko Saruhashi',
-          imageId: 'YfeOqp2'
-        }}
-      />
-    </Card>
-  );
-}
+
 
 
